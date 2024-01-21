@@ -32,13 +32,13 @@ Running app at local K8s cluster:
 
 ```shell
 minikube start
-kubectl run minimal --image=akaliutau/microservice --port=9999 --labels app=minimal
-kubectl get pods --selector app=minimal
-kubectl port-forward pod/minimal 9999:8888
+kubectl run goapp --image=akaliutau/microservice --port=9999 --labels app=goapp
+kubectl get pods --selector app=goapp
+kubectl port-forward pod/goapp 9999:8888
 ```
 
 Clean up:
 
 ```shell
-kubectl delete pod minimal
+kubectl delete pod goapp
 ```

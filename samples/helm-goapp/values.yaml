@@ -1,0 +1,7 @@
+environment: development
+container:
+  name: goapp
+  port: 8888
+  image: akaliutau/microservice
+  tag: latest
+replicas: 1

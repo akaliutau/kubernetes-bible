@@ -9,7 +9,7 @@
 
 ## Definitions
 
-The control plane is actually made up of several components:
+### The control plane:
 
 **kube-apiserver** - the frontend server for the control plane, handling API requests.
 
@@ -23,12 +23,14 @@ The control plane is actually made up of several components:
 
 The control-plane components in a production cluster need to provide high availability (HA)
 
-Cluster members that run user workloads are called worker nodes.
+### Worker nodes.
 
 Each worker node in a Kubernetes cluster runs these components:
 
 **kubelet** - responsible for driving the container runtime to start workloads that are scheduled on the node, and monitoring their status.
+
 **kube-proxy** - to route requests between Pods on different nodes, and between Pods and the internet.
+
 **Container runtime** - starts and stops containers and handles their communications.
 
 Historically the most popular option has been Docker, but Kubernetes supports other container runtimes as well, such as containerd and CRI-O.
