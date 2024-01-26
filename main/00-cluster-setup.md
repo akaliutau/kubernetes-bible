@@ -22,6 +22,10 @@ It offers lots of options, including high availability, and support for multiple
 _kubeadm_ is part of the Kubernetes distribution, and it aims to help you install and maintain a Kubernetes 
 cluster according to best practices.
 
+High-level procedure:
+
+* setup master node
+* add worker nodes one by one
 
 # Annotated resources
 
