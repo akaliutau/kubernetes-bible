@@ -49,7 +49,7 @@ Labels:           app=goapp
                   pod-template-hash=bdd7db547
 ```
 
-Using helm:
+Installing demo goapp using helm (recommended approach due to rich configuration options):
 
 ```shell
 helm upgrade --install goapp ./helm-goapp/
@@ -59,6 +59,9 @@ helm list
 NAME 	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART      	APP VERSION
 goapp	default  	1       	2024-01-21 23:18:16.592529516 +0000 UTC	deployed	goapp-1.0.0	
 ```
+
+helm helps to keep configuration separately from k8s templates, which leads to better and simpler config management
+(fe. for DEV/UAT/PROD envs)
 
 # Key notions
 
@@ -72,4 +75,4 @@ goapp	default  	1       	2024-01-21 23:18:16.592529516 +0000 UTC	deployed	goapp-
 
 # Annotated resources
 
-* [Helm](https://helm.sh/docs/intro/install/)
+* [Helm official documentation](https://helm.sh/docs/intro/install/)

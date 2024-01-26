@@ -6,5 +6,7 @@ general thoughts about how to build a perfect cloud system and the collection of
 
 # Contents
 
+* [Cluster setup](./main/00-cluster-setup.md)
 * [Intro](./main/01-intro.md)
 * [K8s resources (objects)](./main/02-objects.md)
+* 
