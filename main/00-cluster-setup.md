@@ -9,6 +9,19 @@ and manage production-grade clusters on AWS / Google Cloud.
 * `VMware Tanzu` and `Google Anthos` make it possible to centrally manage Kubernetes clusters running in 
 multiple clouds and on-premise infrastructure.
 
+For local testing use minikube:
+
+```shell
+minikube start
+minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+```
+
 # Best practice
 
 ## Kubernetes Installers

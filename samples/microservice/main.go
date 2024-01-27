@@ -6,8 +6,17 @@ import (
 	"net/http"
 )
 
+func getenv(key, fallback string) string {
+    value := os.Getenv(key)
+    if len(value) == 0 {
+        return fallback
+    }
+    return value
+}
+
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello world")
+	greeting := getenv("GREETING", "Hello")
+	fmt.Fprintln(w, "%s, world", greeting)
 }
 
 func main() {
