@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta24
+kind: Config
+build:
+  artifacts:
+    - image: skaffold-goapp
+deploy:
+  helm:
+    releases:
+      - name: goapp
+        chartPath: ./helm-goapp
+        namespace: goapp
+        artifactOverrides:
+          image: skaffold-goapp
