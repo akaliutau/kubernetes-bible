@@ -1,0 +1,31 @@
+steps:
+  - id: get-kube-config
+    dir: cloudbuild
+    name: gcr.io/cloud-builders/kubectl
+    env:
+      - CLOUDSDK_CORE_PROJECT=$PROJECT_ID
+      - CLOUDSDK_COMPUTE_REGION=${_REGION}
+      - CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}
+      - KUBECONFIG=/workspace/.kube/config
+    args:
+      - cluster-info
+
+  - id: deploy
+    dir: cloudbuild
+    name: akaliutau/helm-cloudbuilder
+    env:
+      - KUBECONFIG=/workspace/.kube/config
+    args:
+      - helm
+      - upgrade
+      - --install
+      - --create-namespace
+      - ${TAG_NAME}-goapp
+      - --namespace=${TAG_NAME}-goapp
+      - --values
+      - k8s/demo/${TAG_NAME}-values.yaml
+      - --set
+      - container.image=${_REGION}-docker.pkg.dev/$PROJECT_ID/goapp/goapp
+      - --set
+      - container.tag=${COMMIT_SHA}
+      - ./app
