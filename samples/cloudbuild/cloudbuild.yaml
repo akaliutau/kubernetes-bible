@@ -1,0 +1,41 @@
+steps:
+  - id: build-test-image
+    dir: cloudbuild
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        docker image build --target build --tag goapp:test .
+
+  - id: run-tests
+    dir: cloudbuild
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        docker container run goapp:test go test
+
+  - id: build-app
+    dir: cloudbuild
+    name: gcr.io/cloud-builders/docker
+    args:
+      - docker
+      - image
+      - build
+      - --tag
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/goapp/goapp:$COMMIT_SHA
+      - .
+
+  - id: kubeval
+    dir: cloudbuild
+    name: akaliutau/helm-cloudbuilder
+    entrypoint: sh
+    args:
+      - -c
+      - |
+        helm template ./app/ | kubeval
+
+images:
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/goapp/goapp:$COMMIT_SHA

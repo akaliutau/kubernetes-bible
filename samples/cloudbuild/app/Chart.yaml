@@ -1,0 +1,4 @@
+name: goapp
+sources:
+- https://github.com/akaliutau/kubernetes-bible/samples/cloudbuild/app
+version: 1.0.0
