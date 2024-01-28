@@ -21,6 +21,6 @@ Notes can be used for the preparation for K8s certification exams
 * [Deployments](./main/10-deployments.md)
 * [Software Development Life Cycle (SDLC) in K8s](./main/11-development-lifecycle.md)
 * [K8s CI/CD](./main/12-k8s-cicd.md)
-* [Observability](./main/14-observability.md)
 * [Metrics](./main/13-metrics.md)
+
 

@@ -1,6 +1,6 @@
 # Security and RBAC
 
-Tools to scan clusters against any issues:
+## Tools to scan clusters against any issues
 
 ## Gatekeeper/OPA
 
@@ -29,11 +29,11 @@ In effect, it verifies that the cluster is set up according to security best pra
 
 # Key notions
 
-* RBAC gives you fine-grained management of permissions in Kubernetes. Make sure it’s enabled, 
-  and use RBAC roles to grant specific users and apps only the minimum privileges they need to do their jobs.
+* RBAC gives a fine-grained management of permissions in Kubernetes. RBAC roles must grant specific users and apps only 
+  the minimum privileges they need to do their jobs.
 * Containers are not exempt from security and malware problems. Use a scanning tool to check any containers that you run in production.
-* Using Kubernetes does not mean that you don’t need backups: back up data and the state of the cluster.
-  (can be used for moving things between clusters as a spin-off/bonus)
+* Using Kubernetes does not mean that they don’t need backups: back up data and the state of the cluster.
+  (backups are essentially copies of state and can be used for moving things between clusters as a spin-off/bonus)
 * kubectl is a powerful tool for inspecting and reporting on all aspects of cluster and its workloads. 
 * Kubernetes provides web console and `kube-ops-view` for a graphical overview of what’s going on in cluster
 
